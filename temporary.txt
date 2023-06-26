@@ -1,0 +1,580 @@
+
+Simplecal.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Calculator</title>
+<script>
+function number(value){
+document.form1.result.value += value;
+}
+function cle(value) {
+document.form1.result.value=0;
+}
+function evalua() {
+//var evalu=eval(document.form1.result.value);
+document.form1.result.value=eval(document.form1.result.value);
+}
+</script>
+<style>
+table{
+border: 2px solid black;width:30%;
+}
+td{
+padding: 15px;
+width:15px;
+height:100%;
+color:red;
+}
+button{
+width:100%;
+height:100%;
+color:blue;
+}
+input{
+width:100%;
+height:20px;
+background-color:white;
+}
+button:hover{
+background-color:red;
+color:black;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<form name="form1">
+<table align="center">
+<tr><td colspan="4" style="text-align:center">SIMPLE CALCULATOR</td></tr>
+<tr><td colspan="4">
+<input type="text" name="result" placeholder="0" disabled
+style="text-align:right"></input>
+</td>
+</tr>
+<tr>
+<td><button type="button" onclick="number(value)"
+value="1">1</button></td>
+<td><button type="button" onclick="number(value)"
+value="2">2</button></td>
+<td><button type="button" onclick="number(value)"
+value="3">3</button></td>
+<td><button type="button" onclick="number(value)"
+value="+">+</button></td>
+</tr>
+<tr>
+<td><button type="button" onclick="number(value)"
+value="4">4</button></td>
+<td><button type="button" onclick="number(value)"
+value="5">5</button></td>
+<td><button type="button" onclick="number(value)"
+value="6">6</button></td>
+<td><button type="button" onclick="number(value)"
+value="-">-</button></td>
+</tr>
+<tr>
+<td><button type="button" onclick="number(value)"
+value="7">7</button></td>
+<td><button type="button" onclick="number(value)"
+value="8">8</button></td>
+<td><button type="button" onclick="number(value)"
+value="9">9</button></td>
+<td><button type="button" onclick="number(value)"
+value="/">/</button></td>
+</tr>
+<tr>
+<td><button type="button" onclick="number(value)"
+value="."><strong>.</strong></button></td>
+<td><button type="button" onclick="number(value)" value="0">0</button></td>
+<td><button type="button" onclick="number(value)" value="*">*</button></td>
+<td><button type="button" onclick="number(value)" value="%">%</button></td>
+</tr>
+<tr>
+<td colspan="2"><button type="button" onclick="cle(value)" value="C">C</button></td>
+<td colspan="2"><button type="button" onclick="evalua()" value='='>= </button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+
+
+Experiment No 2:Write a JavaScript that calculates the squares and cubes of the numbers
+from 0 to 10and outputs HTML text that displays the resulting values in an HTML table
+format.
+Square.html
+<!DOCTYPE html>
+<html>
+<head><title> Squares and Cubes </title></head>
+<body>
+<script>
+document.write('<h1 allign="center" > Squares and Cubes </h1>') ;
+document.write('<table border="1" width = "30%" bg color="white" ');
+document.write('<th><td>Number</td><td>Square</td> <td>Cube</td>');
+for( var i = 0 ; i < 10 ; i++)
+{
+document.write('<tr><td>'+ i+ '</td> <td> '+i*i+' </td> <td> '+i*i*i+'
+</td>');
+}
+document.write('</table>');
+</script>
+</body>
+</html>
+
+
+Experiment No 3: Write a JavaScript code that displays text “TEXT-GROWING” with
+increasing font size in the interval of 100ms in RED COLOR, when the font size reaches
+50pt it displays “TEXT-SHRINKING” in BLUE color. Then the font size decreases to
+5pt.
+Built in function:
+The setInterval() method calls a function at specified intervals (in milliseconds). The setInterval()
+method continues calling the function until clearInterval() is called, or the window is closed.
+1 second = 1000 milliseconds.
+textgrow.html
+<!DOCTYPE html>
+<html>
+<head><title> Text Grow and Shrink </title></head>
+<body>
+<p id="myp1" style="text-align:center" > </p>
+<script>
+var size = 10 ;
+var mywait = setInterval(growtext , 100 ) ;
+function growtext()
+{
+if( size < 51 )
+{
+size += 1 ;
+document.getElementById("myp1").innerHTML = "Text Growing" ;
+document.getElementById("myp1").style.fontSize = (size+'pt') ;
+document.getElementById("myp1").style.color = "red" ;
+}
+else
+{
+clearInterval(mywait) ;
+mywait = setInterval(shrinktext , 100 ) ;
+}
+}
+function shrinktext()
+{
+if(size > 5 )
+{
+size -= 1 ;
+document.getElementById("myp1").innerHTML = "Text Shrinking " ;
+document.getElementById("myp1").style.fontSize = (size+'pt');
+document.getElementById("myp1").style.color = "blue" ;
+}
+else
+{
+clearInterval(mywait) ;
+mywait = setInterval(growtext , 100 ) ;
+}
+}
+</script>
+</body>
+</html>
+
+
+Experiment No:4 Develop and demonstrate a HTML5 file that includes JavaScript script
+that uses functions for the following problems:
+a) Parameter: A string
+b) Output: The position in the string of the left-most vowel
+c) Parameter: A number
+d) Output: The number with its digits in the reverse order
+Built-in Functions:
+In JavaScript NaN is short for "Not-a-Number". The isNaN() method returns true if a value is NaN.
+The isNaN() method converts the value to a number before testing it.isNaN() method returns true if
+a value is Not-a-Number. Number.isNaN() returns true if a number is Not-a-Number.
+The parseInt method parses a value as a string and returns the first integer.
+vowel-reverse.html
+<!DOCTYPE html>
+<html>
+<head><title> Program 4 </title> </head>
+<body>
+<script>
+var str = prompt("enter the input") ;
+if( !isNaN(str) )
+{
+var num = 0 , rev = 0 , rem = 0 ;
+num = parseInt(str) ;
+while(num != 0 )
+{
+rem = num % 10 ;
+num = parseInt(num / 10);
+rev = rev * 10 + rem ;
+}
+alert("reverse of "+str+" is "+rev) ;
+}
+else
+{
+i = str.search(/[aeiouAEIOU]/) ;
+if( i != -1)
+alert("the position of the left most vowel is "+(i+1))
+else
+alert("no vowel found in the string")
+}
+</script>
+</body>
+</html>
+
+
+Experiment No:5 Design an XML document to store information about a student in an
+engineering college affiliated to VTU. The information must include USN, Name, and Name of
+the College, Branch,Year of Joining, and email id. Makeup sample data for 3 students. Create a
+CSS style sheet and use it to display the document.
+5.css
+student{
+display:block; margin-top:50px; color:Navy;
+}
+USN{
+display:block; margin-left:50px;font-size:14pt; color:Red;
+}
+name{
+display:block; margin-left:50px;font-size:14pt; color:Blue;
+}
+college{
+display:block; margin-left:50px;font-size:14pt; color:Maroon;
+}
+branch{
+display:block; margin-left:50px;font-size:14pt; color:Purple;
+}
+year{
+display:block; margin-left:50px;font-size:14pt; color:Green;
+}
+email{
+display:block; margin-left:50px;font-size:14pt; color:Blue;
+}
+5.xml
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/css" href="5.css" ?>
+<student_information>
+<h1> STUDENTS DESCRIPTION </h1>
+<student>
+<USN>USN : 1RF19IS001</USN>
+<name>NAME : ADRASH </name>
+<college>COLLEGE : RVITM</college>
+<branch>BRANCH : Information Science and Engineering</branch>
+<year>YEAR : 2019</year>
+<email>email : adrash.rvitm@rvei.edu.in</email>
+</student>
+<student>
+<USN>USN : 1RF19IS002</USN>
+<name>NAME : Abay</name>
+<college>COLLEGE : RVITM</college>
+<branch>BRANCH : Information Science and Engineering</branch>
+<year>YEAR : 2019</year>
+<email>email : abay.rvitm@rvei.edu.in</email>
+</student>
+<student>
+<USN>USN : 1RF19IS003</USN>
+<name>NAME : Adhitya </name>
+<college>COLLEGE : RVITM</college>
+<branch>BRANCH : Information Science and Engineering </branch>
+<year>YEAR : 2019</year>
+<email>email :adhitya.rvitm@rvei.edu.in</email>
+</student>
+</student_information>
+
+
+Experiment no:6 Write a PHP program to keep track of the number of visitors visiting the
+web page and to display this count of visitors, with proper headings.
+<?php
+echo "<h1 style='text-align:center'> Count Page </h1>" ;
+$name = 'counter.txt' ;
+$c = file_get_contents($name) ;
+echo "The number of users visited : ".$c ;
+file_put_contents($name, $c+1);
+?>
+
+
+Experiment no:7 Write a PHP program to display a digital clock which displays the current
+time of the server.
+<!DOCTYPE html>
+<html>
+<head><title>Display Server Time</title>
+<style>
+p {
+border:10px solid green ;
+padding:100px;
+width:50%;
+height:50%;
+background-color:light-blue;
+color:blue;
+text-align:center;
+font-size: 40px;
+}
+</style>
+<h1 style='text-align:center'> Digital Clock </h1>
+<?php
+date_default_timezone_set("Asia/Kolkata");
+echo '<p id="server-date"> '.date("h:i:sa").'</p>' ;
+?>
+</body>
+</html>
+
+
+Experiment no:8 Write the PHP programs to do the following:
+a) Implement simple calculator operations.
+b) Find the transpose of a matrix.
+c) Multiplication of two matrices.
+d) Addition of two matrices.
+Implementation of Simple Calculator
+<html>
+<head>
+<style>
+table, td, th {
+border: 1px solid black;
+width: 35%;
+text-align: center;
+background-color: LightBlue;
+}
+table {
+margin: auto;
+}
+input,p {
+text-align:right;
+}
+</style>
+</head>
+<body>
+<form method="post">
+<table>
+<caption><h2> SIMPLE CALCULATOR </h2></caption>
+<tr>
+<td>First Number:</td><td><input type="text" name="num1" /></td>
+<td rowspan="2"><button type="submit" name="submit"
+value="calculate">Calculate</td></tr>
+<tr>
+<td>Second Number:</td><td><input type="text" name="num2"/></td>
+</tr>
+</form>
+<?php
+if(isset($_POST['submit'])) // it checks if the input submit is filled
+{
+$num1 = $_POST['num1'];
+$num2 = $_POST['num2'];
+if(is_numeric($num1) and is_numeric($num2) )
+{
+echo "<tr><td>Addition :</td><td><p>".($num1+$num2)."</p></td>";
+echo "<tr><td> Subtraction :</td><td><p> ".($num1-$num2)."</p></td>";
+echo "<tr><td> Multiplication :</td><td><p>".($num1*$num2)."</p></td>";
+echo "<tr><td>Division :</td><td><p> ".($num1/$num2)."</p></td>";
+echo "</table>";
+}
+else
+{
+echo"<script> alert(' ENTER VALID NUMBER');</script>";
+}
+}
+?>
+</body>
+</html>
+OUTPUT:
+Implementation of matrix Operation.
+<?php
+$a = array(array(1,2,3),array(4,5,6),array(7,8,9));
+$b = array(array(7,8,9),array(4,5,6),array(1,2,3));
+$m=count($a);
+$n=count($a[2]);
+$p=count($b);
+$q=count($b[2]);
+echo "the first matrix :"."<br/>";
+for ($row = 0; $row < $m; $row++)
+{
+for ($col = 0; $col < $n; $col++)
+echo " ".$a[$row][$col];
+echo "<br/>";
+}
+echo "the second matrix :"."<br/>";
+for ($row = 0; $row < $p; $row++)
+{
+for ($col = 0; $col < $q; $col++)
+echo " ".$b[$row][$col];
+echo "<br/>";
+}
+echo "the transpose for the first matrix is:"."<br/>";
+for ($row = 0; $row < $m; $row++)
+{
+for ($col = 0; $col < $n; $col++)
+echo " ".$a[$col][$row];
+echo "<br/>";
+}
+if(($m===$p) and ($n===$q))
+{
+echo "the addition of matrices is:"."<br/>";
+for ($row = 0; $row < 3; $row++)
+{
+for ($col = 0; $col < 3; $col++)
+echo " ".$a[$row][$col]+$b[$row][$col]." "; echo "<br/>";
+}
+}
+if($n===$p)
+{
+echo " The multiplication of matrices: <br/>";
+$result=array();
+for ($i=0; $i < $m; $i++)
+{
+for($j=0; $j < $q; $j++)
+{
+$result[$i][$j] = 0;
+for($k=0; $k < $n; $k++)
+$result[$i][$j] += $a[$i][$k] * $b[$k][$j];
+}
+}
+for ($row = 0; $row < $m; $row++)
+{
+for ($col = 0; $col < $q; $col++)
+echo " ".$result[$row][$col]; echo "<br/>";
+}
+}
+?>
+
+
+Experiment no:9 Write a PHP program named states.py that declares a variable state with
+value “Mississippi Alabama Texas Massachusetts Kansas". write a PHP program that does
+the following:
+a) Search for a word in variable states that ends in x as. Store this word in element0 of a list
+named states List.
+b) Search for a word in states that begins with k and ends in s. Perform a case-insensitive
+comparison. [Note: Passing re as a second parameter to method compile performs a caseinsensitive comparison.] Store this word in the element of states.
+c) Search for a word in states that begins with M and ends in s. Store this word in element 2
+of the list.
+d) Search for a word in states that ends in a. Store this word in element 3 of the list.
+<?php
+$states = "Mississippi Alabama Texas Massachusetts Kansas";
+$statesArray = [];
+$states1 = explode(' ',$states);
+echo "Original Array :<br>";
+foreach ( $states1 as $i => $value )
+print("STATES[$i]=$value<br>");
+foreach($states1 as $state)
+{
+if(preg_match( '/.*xas$/', ($state)))
+$statesArray[0] = ($state);
+}
+foreach($states1 as $state)
+{
+if(preg_match('/^k.*s$/i', ($state)))
+$statesArray[1] = ($state);
+}
+foreach($states1 as $state)
+{
+if(preg_match('/^M.*s$/', ($state)))
+$statesArray[2] = ($state);
+}
+foreach($states1 as $state)
+{
+if(preg_match('/a$/', ($state)))
+$statesArray[3] = ($state);
+}
+echo "<br><br>Resultant Array :<br>";
+foreach ( $statesArray as $array => $value )
+print("STATES[$array]=$value<be>");
+?>
+
+
+
+
+Experiment no:10 Write a PHP program to sort the student records which are stored in the
+database using selection sort.
+GotoMysql and then type
+create database weblab;
+use weblab;
+create table student(usn varchar(10),name varchar(20),addr varchar(20));
+p10.php
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+table, td, th
+{
+border: 1px solid black;
+width: 33%;
+text-align: center;
+border-collapse:collapse;
+background-color:lightblue;
+}
+table { margin: auto; }
+</style>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "weblab";
+$a=[];
+// Create connection
+// Opens a new connection to the MySQL server
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection and return an error description from the lastconnection
+error, if any
+if ($conn->connect_error)
+die("Connection failed: " . $conn->connect_error);
+$sql = "SELECT * FROM student";
+// performs a query against the database
+$result = $conn->query($sql);
+echo "<br>";
+echo "<center> BEFORE SORTING </center>";
+echo "<table border='2'>";
+echo "<tr>";t
+echo "<th>USN</th><th>NAME</th><th>Address</th></tr>"; if
+($result->num_rows> 0)
+{
+// output data of each row and fetches a result row as an associative
+array
+while($row = $result->fetch_assoc()){
+echo "<tr>";
+echo "<td>". $row["usn"]."</td>";
+echo "<td>". $row["name"]."</td>";
+echo "<td>". $row["addr"]."</td></tr>";
+array_push($a,$row["usn"]);
+}
+}
+else
+echo "Table is Empty";
+echo "</table>";
+$n=count($a);
+$b=$a;
+for ( $i = 0 ; $i< ($n - 1) ; $i++ )
+{
+$pos= $i;
+for ( $j = $i + 1 ; $j < $n ; $j++ ) {
+if ( $a[$pos] > $a[$j] )
+$pos= $j;
+}
+if ( $pos!= $i ) {
+$temp=$a[$i];
+$a[$i] = $a[$pos];
+$a[$pos] = $temp;
+}
+}
+$c=[];
+$d=[];
+$result = $conn->query($sql);
+if ($result->num_rows> 0)// output data of each row
+{
+while($row = $result->fetch_assoc()) {
+for($i=0;$i<$n;$i++) {
+if($row["usn"]== $a[$i]) {
+$c[$i]=$row["name"];
+$d[$i]=$row["addr"];
+}
+}
+}
+}
+echo "<br>";
+echo "<center> AFTER SORTING <center>";
+echo "<table border='2'>";
+echo "<tr>";
+echo "<th>USN</th><th>NAME</th><th>Address</th></tr>";
+for($i=0;$i<$n;$i++) {
+echo "<tr>";
+echo "<td>". $a[$i]."</td>";
+echo "<td>". $c[$i]."</td>";
+echo "<td>". $d[$i]."</td></tr>";
+}
+echo "</table>";
+$conn->close();
+?>
+</body>
+</html>
+OUTPUT:
